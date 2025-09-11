@@ -1,12 +1,9 @@
-const API_URL = "http://127.0.0.1:8000";  // Endereço da API
-
-// 🔹 Carregar produtos do backend
+// Carregar produtos de um arquivo JSON local
 async function carregarProdutos() {
   try {
-    const resposta = await fetch(`${API_URL}/produtos`);
-    if (!resposta.ok) throw new Error("Erro ao carregar produtos");
-    
+    const resposta = await fetch("produtos.json"); // carrega direto do arquivo
     const produtos = await resposta.json();
+
     const container = document.getElementById("produtos-container");
     container.innerHTML = "";
 
@@ -26,7 +23,7 @@ async function carregarProdutos() {
   }
 }
 
-// 🔹 Função para adicionar produto no carrinho
+// Função para adicionar produto no carrinho
 function adicionarCarrinho(id) {
   let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
   carrinho.push(id);

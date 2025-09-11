@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "nome": "Caderno",
+    "descricao": "Caderno 200 folhas",
+    "preco": 15.90,
+    "estoque": 30
+  },
+  {
+    "id": 2,
+    "nome": "Caneta Azul",
+    "descricao": "Caneta esferográfica azul",
+    "preco": 2.50,
+    "estoque": 100
+  },
+  {
+    "id": 3,
+    "nome": "Mochila Escolar",
+    "descricao": "Mochila resistente para livros",
+    "preco": 120.00,
+    "estoque": 10
+  }
+]
