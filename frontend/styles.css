@@ -1,26 +1,87 @@
-/* Modal Carrinho */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.5);
-  justify-content: center;
-  align-items: center;
+/* Modal carrinho */
+:root{
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --primary: #0ea5e9;
+  --muted: #64748b;
+  --accent: #22c55e;
+  --danger: #ef4444;
+  --radius: 10px;
+  --container: 1100px;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 }
 
-.modal-content {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  width: 400px;
-  max-height: 80vh;
-  overflow-y: auto;
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:#0f172a;
+  -webkit-font-smoothing:antialiased;
 }
 
-.modal-actions {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
+.container{
+  max-width:var(--container);
+  margin:0 auto;
+  padding:1rem;
+}
+
+.site-header{
+  background:linear-gradient(90deg,#fff 0%, #f1f5f9 100%);
+  border-bottom:1px solid #e6edf3;
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+}
+.brand h1{margin:0;font-size:1.6rem}
+.brand .tag{margin:0;color:var(--muted);font-size:0.9rem}
+
+.header-actions{display:flex;align-items:center;gap:0.75rem}
+#search{padding:0.6rem 0.75rem;border-radius:8px;border:1px solid #dbeafe;min-width:180px}
+.cart-btn{background:var(--primary);color:#fff;border:none;padding:0.5rem 0.8rem;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:0.5rem}
+.cart-btn span{background:rgba(255,255,255,0.15);padding:0.12rem 0.45rem;border-radius:999px;font-weight:600}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-top:1.25rem}
+.card{background:var(--card);border-radius:var(--radius);padding:1rem;box-shadow:0 6px 18px rgba(2,6,23,0.06);display:flex;flex-direction:column;gap:0.6rem}
+.card h3{margin:0;font-size:1.05rem}
+.card p{margin:0;color:var(--muted);font-size:0.95rem}
+.card .thumb{height:140px;border-radius:8px;background:linear-gradient(180deg,#f8fbff,#eef7ff);display:flex;align-items:center;justify-content:center;color:#94a3b8;margin-bottom:0.4rem}
+.card .thumb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:6px}
+.price{font-weight:700;color:#0b5568;margin-top:auto}
+.card .actions{display:flex;gap:0.5rem;margin-top:0.5rem}
+.card button{flex:1;padding:0.6rem;border-radius:8px;border:none;cursor:pointer}
+.card button:disabled{opacity:0.6;cursor:not-allowed}
+.btn-add{background:var(--primary);color:#fff}
+.btn-details{background:#eef2f7;color:#0f172a}
+
+/* Modal carrinho */
+.modal{
+  display:none;position:fixed;inset:0;background:rgba(2,6,23,0.45);z-index:1200;align-items:center;justify-content:center;padding:1rem
+}
+.modal[aria-hidden="false"]{display:flex}
+.modal-content{background:var(--card);width:100%;max-width:540px;border-radius:12px;padding:1rem;box-shadow:0 12px 40px rgba(2,6,23,0.15)}
+.modal-header{display:flex;align-items:center;justify-content:space-between}
+.btn-close{background:transparent;border:none;font-size:1.1rem;cursor:pointer}
+#carrinho-lista{list-style:none;padding:0;margin:1rem 0;display:flex;flex-direction:column;gap:0.6rem}
+.item{display:flex;align-items:center;justify-content:space-between;gap:0.5rem;padding:0.5rem;border-radius:8px;background:#fbfdff;border:1px solid #eef6fb}
+.item .meta{flex:1}
+.item .meta b{display:block}
+.qty-controls{display:flex;gap:0.4rem;align-items:center}
+.qty-controls button{padding:0.2rem 0.5rem;border-radius:6px;border:1px solid #e2e8f0;background:white;cursor:pointer}
+#subtotal{font-weight:700;text-align:right;margin:0.5rem 0}
+.cupom{display:flex;gap:0.5rem;margin-bottom:0.5rem}
+.cupom input{flex:1;padding:0.55rem;border-radius:8px;border:1px solid #e2e8f0}
+.cupom button{background:var(--primary);color:white;border:none;padding:0.55rem 0.9rem;border-radius:8px;cursor:pointer}
+.modal-actions{display:flex;gap:0.5rem}
+.btn-finalizar{flex:1;background:var(--accent);color:white;border:none;padding:0.7rem;border-radius:8px;cursor:pointer}
+.btn-fechar{flex:1;background:#f1f5f9;border:none;padding:0.7rem;border-radius:8px;cursor:pointer}
+
+.site-footer{padding:1rem 0;color:var(--muted);text-align:center;border-top:1px solid #e6edf3;margin-top:2rem}
+
+@media (max-width:600px){
+  .header-inner{flex-direction:column;align-items:flex-start}
+  #search{width:100%}
+  .modal-content{padding:0.75rem}
 }

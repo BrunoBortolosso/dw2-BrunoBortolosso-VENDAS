@@ -2,19 +2,63 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Loja Escolar</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Loja Escolar</h1>
-    <button id="btn-carrinho" aria-label="Abrir carrinho">
-      🛒 <span id="quantidade">0</span>
-    </button>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <h1>Loja Escolar</h1>
+        <p class="tag">Material escolar e acessórios</p>
+      </div>
+
+      <div class="header-actions">
+        <input id="search" type="search" placeholder="Buscar produtos..." aria-label="Buscar produtos">
+        <button id="btn-carrinho" class="cart-btn" aria-label="Abrir carrinho">
+          🛒 <span id="quantidade">0</span>
+        </button>
+      </div>
+    </div>
   </header>
 
-  <!-- Lista de produtos -->
-  <main id="produtos-container"></main>
+  <main class="container">
+    <section id="produtos-container" class="grid"></section>
+  </main>
+
+  <!-- Modal Carrinho -->
+  <div id="carrinho-modal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-label="Carrinho de compras">
+      <div class="modal-header">
+        <div>
+          <h2>Seu Carrinho</h2>
+          <small id="total-itens" style="color:var(--muted)">0 itens</small>
+        </div>
+        <button class="btn-close" onclick="fecharCarrinho()" aria-label="Fechar">✖</button>
+      </div>
+
+      <ul id="carrinho-lista"></ul>
+      <p id="subtotal">Subtotal: R$ 0,00</p>
+
+      <div class="cupom">
+        <input type="text" id="cupom" placeholder="Cupom (ex: ALUNO10)">
+        <button id="btn-aplicar-cupom">Aplicar</button>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn-finalizar" id="btn-finalizar">Finalizar Pedido</button>
+        <button class="btn-fechar" onclick="fecharCarrinho()">Continuar Comprando</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© Loja Escolar — Projeto de exemplo</small>
+    </div>
+  </footer>
 
   <script src="scripts.js"></script>
 </body>
