@@ -8,37 +8,13 @@
 <body>
   <header>
     <h1>Loja Escolar</h1>
-
-    <nav>
-      <a href="admin.html" style="color:white; margin-right: 20px;">Admin</a>
-      <button id="btn-carrinho" aria-label="Abrir carrinho">
-        🛒 <span id="quantidade">0</span>
-      </button>
-    </nav>
+    <button id="btn-carrinho" aria-label="Abrir carrinho">
+      🛒 <span id="quantidade">0</span>
+    </button>
   </header>
 
-  <!-- 🔹 Área dos produtos -->
-  <main id="produtos-container">
-    <!-- Os produtos virão via scripts.js -->
-  </main>
-
-  <!-- 🔹 Modal do Carrinho -->
-  <div id="carrinho-modal" class="modal">
-    <div class="modal-content">
-      <h2>Seu Carrinho</h2>
-      <ul id="carrinho-lista"></ul>
-      <p id="subtotal"></p>
-
-      <label for="cupom">Cupom de desconto:</label>
-      <input type="text" id="cupom" placeholder="Digite o cupom">
-      <button onclick="aplicarCupom()">Aplicar</button>
-
-      <div class="modal-actions">
-        <button onclick="finalizarCompra()">Finalizar Pedido</button>
-        <button onclick="fecharCarrinho()">Fechar</button>
-      </div>
-    </div>
-  </div>
+  <!-- Lista de produtos -->
+  <main id="produtos-container"></main>
 
   <script src="scripts.js"></script>
 </body>
